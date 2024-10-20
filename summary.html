@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link rel="stylesheet" href="/static/styles-summary.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensure the body takes up the full viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #4682b4;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #poop-count {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+        }
+
+        .join-group-button {
+            background-color: #32cd32;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .logout-button {
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container {
+            flex: 1; /* Allow the container to grow and take up remaining space */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 1; /* Allow the content to grow and take up remaining space */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #activity-section {
+            width: 100%;
+            flex: 1; /* Allow the activity section to grow and take up remaining space */
+            overflow-y: auto;
+            background-color: #e6e6fa;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .activity-item {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .activity-item h3 {
+            margin: 0;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .activity-item .date {
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .activity-item p {
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .activity-item .actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .activity-item .actions button {
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #floating-new-poop-button {
+            background-color: #32cd32;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #poop-form {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        #comment {
+            width: 80%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #retro {
+            margin: 10px 0;
+        }
+
+        #retro-date {
+            margin: 10px 0;
+        }
+
+        #submit-button {
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-button {
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .group-section {
+            width: 100%;
+            text-align: center;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 id="poop-count">0 Poops</h1>
+        <button class="join-group-button" onclick="showJoinGroupForm()">Join Group</button>
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div id="activity-section">
+                <h2>Activity</h2>
+                <div id="group-content">
+                    <!-- Group content will be populated here -->
+                </div>
+            </div>
+            <form id="poop-form" onsubmit="submitPoop(event)">
+                <button class="close-button" onclick="closePoopForm()">&#x2716;</button>
+                <textarea id="comment" placeholder="Enter your comment" aria-label="Comment"></textarea><br>
+                <input type="checkbox" id="retro" onclick="toggleDateField()" aria-label="Retro"> Retro<br>
+                <input type="date" id="retro-date" style="display: none;" aria-label="Retro Date"><br>
+                <button type="submit" id="submit-button">Submit</button>
+            </form>
+            <div class="group-section">
+                <form id="join-group-form" style="display: none;" onsubmit="joinGroup(event)">
+                    <button class="close-button" onclick="closeJoinGroupForm()">&#x2716;</button>
+                    <input type="text" id="group-title" placeholder="Group Title" aria-label="Group Title"><br>
+                    <button type="submit" class="join-group-button">Join</button>
+                </form>
+            </div>
+        </div>
+        <button id="floating-new-poop-button" onclick="showPoopForm()">New Poop</button>
+    </div>
+    <script src="/static/summary.js"></script>        
+</body>
+</html>
+
+        
+
+    
