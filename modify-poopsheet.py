@@ -374,7 +374,7 @@ class DB:
 
 @app.post("/event")
 def main(poopevent: PoopEvent):
-    db = DB('postgres', 'localhost', 'postgres', 'lkjh', '5432')
+    db = DB('postgres', 'localhost', 'postgres', '', '5432')
 
     event_type = poopevent.event_type
     print(poopevent)
