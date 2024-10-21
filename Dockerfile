@@ -1,4 +1,4 @@
-FROM python:3.11.4-alpine
+FROM arm64v8/python:3.11.4-alpine
 
 # Install PostgreSQL client and development packages
 RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev

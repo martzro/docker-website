@@ -11,13 +11,13 @@ services:
     ports:
       - '5433:5432'
     volumes:
-      - ./db:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - mynetwork
 
   backend:
-    platform: linux/arm64/v8
+    platform: linux/arm64
     restart: unless-stopped
     mem_limit: 4g
     build:
@@ -28,17 +28,9 @@ services:
     networks:
       - mynetwork
 
-  nginx:
-    image: nginx
-    restart: unless-stopped
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx/:/etc/nginx/
-
-    networks:
-      - mynetwork
-
 networks:
   mynetwork:
     driver: bridge
+
+volumes:
+  db_data:
