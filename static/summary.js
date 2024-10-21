@@ -45,7 +45,7 @@ function submitPoop() {
         }
     };
 
-    fetch('http://localhost:8000/event', {
+    fetch('https://poopsheet.com/api/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -89,7 +89,7 @@ function populatePoopCount() {
         }
     };
 
-    fetch('http://localhost:8000/event', {
+    fetch('https://poopsheet.com/api/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -132,7 +132,7 @@ function populateGroupsDropdown() {
         }
     };
 
-    fetch('http://localhost:8000/event', {
+    fetch('https://poopsheet.com/api/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -177,7 +177,7 @@ function populateAllGroups() {
         }
     };
 
-    fetch('http://localhost:8000/event', {
+    fetch('https://poopsheet.com/api/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -229,7 +229,7 @@ const payload = {
     }
 };
 
-fetch('http://localhost:8000/event', {
+fetch('https://poopsheet.com/api/event', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -276,7 +276,7 @@ function getGroupSubmissions() {
         }
     };
 
-    fetch('http://localhost:8000/event', {
+    fetch('https://poopsheet.com/api/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -366,7 +366,7 @@ function createGroup() {
         }
     };
 
-    fetch('http://localhost:8000/event', {
+    fetch('https://poopsheet.com/api/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -387,7 +387,7 @@ function createGroup() {
                 }
             };
 
-            fetch('http://localhost:8000/event', {
+            fetch('https://poopsheet.com/api/event', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

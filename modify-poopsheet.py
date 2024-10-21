@@ -30,7 +30,7 @@ origins = [
     "http://localhost",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
-    "http://poopsheet.lol"  # Add your frontend domain here
+    "https://poopsheet.lol"  # Add your frontend domain here
 ]
 
 app.add_middleware(
@@ -388,7 +388,7 @@ class DB:
             
 
 
-@app.post("/event")
+@app.post("api/event")
 def main(poopevent: PoopEvent):
     db = DB('poop-sheet', 'db', 'postgres', 'postgres', '5432')
 
