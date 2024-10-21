@@ -17,7 +17,6 @@ services:
       - mynetwork
 
   backend:
-    platform: linux/amd64
     restart: unless-stopped
     mem_limit: 4g
     build:
