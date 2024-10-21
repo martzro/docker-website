@@ -27,10 +27,10 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 origins = [
+    "http://poopsheet.lol",
+    "https://poopsheet.lol",
     "http://localhost",
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "https://poopsheet.lol"  # Add your frontend domain here
+    "http://localhost:8000"
 ]
 
 app.add_middleware(
@@ -388,7 +388,7 @@ class DB:
             
 
 
-@app.post("api/event")
+@app.post("/api/event")
 def main(poopevent: PoopEvent):
     db = DB('poop-sheet', 'db', 'postgres', 'postgres', '5432')
 
