@@ -45,7 +45,7 @@ function submitPoop() {
         }
     };
 
-    fetch('http://127.0.0.1:8000/event', {
+    fetch('http://localhost:8000/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -89,7 +89,7 @@ function populatePoopCount() {
         }
     };
 
-    fetch('http://127.0.0.1:8000/event', {
+    fetch('http://localhost:8000/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -132,7 +132,7 @@ function populateGroupsDropdown() {
         }
     };
 
-    fetch('http://127.0.0.1:8000/event', {
+    fetch('http://localhost:8000/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -177,7 +177,7 @@ function populateAllGroups() {
         }
     };
 
-    fetch('http://127.0.0.1:8000/event', {
+    fetch('http://localhost:8000/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -229,7 +229,7 @@ const payload = {
     }
 };
 
-fetch('http://127.0.0.1:8000/event', {
+fetch('http://localhost:8000/event', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -276,7 +276,7 @@ function getGroupSubmissions() {
         }
     };
 
-    fetch('http://127.0.0.1:8000/event', {
+    fetch('http://localhost:8000/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -366,7 +366,7 @@ function createGroup() {
         }
     };
 
-    fetch('http://127.0.0.1:8000/event', {
+    fetch('http://localhost:8000/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -387,7 +387,7 @@ function createGroup() {
                 }
             };
 
-            fetch('http://127.0.0.1:8000/event', {
+            fetch('http://localhost:8000/event', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

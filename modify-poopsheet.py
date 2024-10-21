@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from datetime import datetime
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from pathlib import Path
@@ -24,6 +25,21 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+origins = [
+    "http://localhost",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://poopsheet.lol"  # Add your frontend domain here
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class User(BaseModel):
@@ -374,7 +390,7 @@ class DB:
 
 @app.post("/event")
 def main(poopevent: PoopEvent):
-    db = DB('postgres', 'localhost', 'postgres', 'lkjh', '5432')
+    db = DB('poop-sheet', 'db', 'postgres', 'postgres', '5432')
 
     event_type = poopevent.event_type
     print(poopevent)

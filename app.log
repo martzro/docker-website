@@ -2362,3 +2362,8 @@ NoneType: None
 2024-10-20 17:08:24,535 - modify-poopsheet - INFO - add_poop ==> Added rownum='' comment='test' date='' is_retro='' for user roman
 2024-10-20 17:08:24,566 - modify-poopsheet - INFO - get_poops_for_user ==> Returning poops for roman
 2024-10-20 17:08:24,585 - modify-poopsheet - INFO - get_poops_from_group ==> Returning groups poops for roman
+2024-10-20 19:30:14,255 - modify-poopsheet - INFO - login ==> roman logged in
+2024-10-20 19:30:14,477 - modify-poopsheet - INFO - get_poops_for_user ==> Returning poops for roman
+2024-10-20 19:30:14,501 - modify-poopsheet - INFO - get_groups_where_user_is_member ==> Returning groups for roman 
+2024-10-20 19:30:14,503 - modify-poopsheet - INFO - get_poops_from_group ==> Returning groups poops for roman
+2024-10-20 19:30:14,689 - modify-poopsheet - INFO - get_poops_from_group ==> Returning groups poops for roman

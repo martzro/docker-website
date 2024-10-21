@@ -23,7 +23,7 @@ function login() {
         }
     };
 
-    fetch('http://127.0.0.1:8000/event', {
+    fetch('http://localhost:8000/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ function makeUser() {
         }
     };
 
-    fetch('http://127.0.0.1:8000/event', {
+    fetch('http://localhost:8000/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
