@@ -23,7 +23,7 @@ function login() {
         }
     };
 
-    fetch('http://poopsheet.com/api/event', {
+    fetch('https://poopsheet.com/api/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ function makeUser() {
         }
     };
 
-    fetch('http://poopsheet.com/api/event', {
+    fetch('https://poopsheet.com/api/event', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
